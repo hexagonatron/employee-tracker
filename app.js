@@ -2,6 +2,8 @@ const mysql = require("mysql");
 const inquirer = require("inquirer");
 require("dotenv").config();
 
+const Menu = require("./lib/Menu");
+
 const connection = mysql.createConnection({
     host: process.env.DB_IP,
 
@@ -18,7 +20,43 @@ connection.connect((err) => {
     mainScript();
 });
 
+const mainMenu = new Menu("Main Menu", "Welcome to the Main menu of this program!!!", "What would you like to do?");
+
+const secondMenu = new Menu("Another Menu", "This is the second menu", "Pick an option", mainMenu);
+
+mainMenu.addAction("Print 1", () => {
+    return console.log(1);
+});
+
+mainMenu.addAction("Print Hello world", () => {
+    return console.log("Hello World");
+});
+
+mainMenu.addAction("Go to the other menu", () => {
+    return secondMenu.display();
+});
+
+secondMenu.addAction("Count to 10", () => {
+    return new Promise((res, rej) => {
+        let count = 0
+        const countToTen = setInterval(() => {
+            console.log(count);
+            count++
+
+            if(count > 10) {
+                clearInterval(countToTen);
+                res();
+            }
+        }, 1000);
+    })
+}
+)
+
 
 const mainScript = () => {
+
+    mainMenu.display().then(_ => {
+        connection.end();
+    });
     
 }
