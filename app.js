@@ -24,19 +24,19 @@ const mainMenu = new Menu("Main Menu", "Welcome to the Main menu of this program
 
 const secondMenu = new Menu("Another Menu", "This is the second menu", "Pick an option", mainMenu);
 
-mainMenu.addAction("Print 1", () => {
+mainMenu.addAction("Print 1", true, () => {
     return console.log(1);
 });
 
-mainMenu.addAction("Print Hello world", () => {
+mainMenu.addAction("Print Hello world", true, () => {
     return console.log("Hello World");
 });
 
-mainMenu.addAction("Go to the other menu", () => {
+mainMenu.addAction("Go to the other menu", false, () => {
     return secondMenu.display();
 });
 
-secondMenu.addAction("Count to 10", () => {
+secondMenu.addAction("Count to 10", true,  () => {
     return new Promise((res, rej) => {
         let count = 0
         const countToTen = setInterval(() => {
