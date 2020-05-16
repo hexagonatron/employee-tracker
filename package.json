@@ -9,6 +9,7 @@
   "author": "Ben Fawcett",
   "license": "MIT",
   "dependencies": {
+    "console.table": "^0.10.0",
     "dotenv": "^8.2.0",
     "inquirer": "^7.1.0",
     "mysql": "^2.18.1"

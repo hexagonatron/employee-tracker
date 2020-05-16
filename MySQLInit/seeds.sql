@@ -1,13 +1,17 @@
 USE employeedb;
 
-INSERT IGNORE INTO department (id, name) VALUES 
+INSERT IGNORE INTO department 
+    (id, name) VALUES 
     (1, "Human Resources"), 
     (2, "Engineering"), 
     (3, "Management"), 
     (4, "Services"), 
-    (5, "Product Development");
+    (5, "Product Development"),
+    (6, "Unassigned");
 
-INSERT IGNORE INTO role (id, title, salary, department_id) VALUES 
+INSERT IGNORE INTO role 
+    (id, title, salary, department_id) VALUES 
+
     (1, "CEO", 2000000, 3),
     (2, "CTO", 1000000, 3),
     (3, "CFO", 1000000, 3),
@@ -19,7 +23,8 @@ INSERT IGNORE INTO role (id, title, salary, department_id) VALUES
     (9, "Tester", 60000, 2),
     (10, "COO", 250000, 3);
 
-INSERT IGNORE INTO employee (id, first_name, last_name, role_id, manager_id) VALUES
+INSERT IGNORE INTO employee 
+    (id, first_name, last_name, role_id, manager_id) VALUES
     (1, "Homer", "Iliad", 1, null),
     (2, "Victor", "Hugo", 2, 1),
     (3, "Marcus", "Aurelius", 3, 1),
