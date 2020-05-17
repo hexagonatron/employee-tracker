@@ -7,4 +7,5 @@ connection.connectAsync().then(_ => {
     connection.end();
 }).catch(err => {
     console.log(err);
+    connection.end();
 })
