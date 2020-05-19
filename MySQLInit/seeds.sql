@@ -21,7 +21,8 @@ INSERT IGNORE INTO role
     (7, "Product Manager", 100000, 5),
     (8, "Programmer", 50000, 2),
     (9, "Tester", 60000, 2),
-    (10, "COO", 250000, 3);
+    (10, "COO", 250000, 3),
+    (11, "Cleaner", "34", NULL);
 
 INSERT IGNORE INTO employee 
     (id, first_name, last_name, role_id, manager_id) VALUES
